@@ -335,14 +335,33 @@
             }
         }
     </style>
+    
+    <!-- Google Tag Manager (gtag.js) - Seção de Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-96DZQYCZ7L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-96DZQYCZ7L');
-</script>
+        gtag('config', 'G-96DZQYCZ7L');
+
+        // FUNÇÃO PARA RASTREAR O CLIQUE LIMPO NO GOOGLE ANALYTICS
+        function trackDownload(actionName, downloadUrl) {
+            // Verifica se o gtag (GA) está pronto
+            if (typeof gtag === 'function') {
+                // 1. Envia o evento de rastreamento para o Google Analytics
+                gtag('event', actionName, {
+                    'event_category': 'Download',
+                    'event_label': downloadUrl
+                });
+                console.log(`Evento rastreado no GA: ${actionName}`);
+            } else {
+                console.error("Função gtag não está definida. O rastreamento pode estar inativo.");
+            }
+            // Retorna true para permitir que o navegador siga o link no href e inicie o download
+            return true;
+        }
+    </script>
 </head>
 <body>
 
@@ -362,10 +381,18 @@
             <p>Com o Recibook você controla suas compras, gera recibos em PDF de forma profissional, tira foto do recibo para organização e calcula o troco automaticamente para mais agilidade.</p>
             
             <div class="button-group">
+                <!-- Botão Telegram (sem alteração) -->
                 <a href="http://bit.ly/RecibookTelegram" class="cta-button">
                     📱 Baixar pelo Telegram <i class="fab fa-telegram-plane"></i>
                 </a>
-                <a href="https://github.com/rafaeltaciel/recibook/releases/download/v1.0.0-beta/recibook-v1.0.0-beta.apk" class="cta-button secondary"download>
+                
+                <!-- Botão APK (Com Link Direto e Rastreamento GA via onclick) -->
+                <a 
+                    href="https://github.com/rafaeltaciel/recibook/releases/download/v1.0.0-beta/recibook-v1.0.0-beta.apk" 
+                    class="cta-button secondary" 
+                    download 
+                    onclick="trackDownload('Download APK - Direto', this.href)"
+                >
                     ⬇️ Download Direto (APK)
                 </a>
             </div>
@@ -422,7 +449,7 @@
             <h2>O que Dizem Nossos Usuários</h2>
             <div class="depoimento-container">
                 <p>"Ótimo para controlar os gastos da família, super recomendo!" - Maria, usuária</p>
-                <img src="print-do-app.jpg" alt="Print da tela do aplicativo Recibook">
+                <img src="print-do-app.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/3498db/ffffff?text=PRINT+DO+APP';" alt="Print da tela do aplicativo Recibook">
             </div>
         </section>
     </main>
