@@ -7,6 +7,7 @@
     
     <!-- Carrega a biblioteca do Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega Font Awesome para ícones -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <!-- Configuração do Tailwind para fontes e cores -->
@@ -56,7 +57,7 @@
             }
             // Pequeno atraso para garantir que o evento seja enviado antes de navegar
             setTimeout(() => {
-                 window.location.href = downloadUrl;
+                    window.location.href = downloadUrl;
             }, 100); 
             // Retorna false para evitar que o link seja seguido imediatamente
             return false;
@@ -81,19 +82,19 @@
             "price": "0", 
             "priceCurrency": "BRL" 
         }, 
-        "url": "https://rafaelprogramdor.github.io/recibook/"
+        "url": "https://rafaeltaciel.github.io/recibook/"
     }</script>
 </head>
 <body class="font-sans text-secondary bg-white">
     <!-- Botão de Download Flutuante (FIXO NO RODAPÉ EM TELAS PEQUENAS) -->
     <div class="fixed bottom-0 left-0 right-0 z-50 bg-white p-4 shadow-2xl md:hidden">
+        <!-- LINK AGORA APONTA PARA A AMAZON APPSTORE -->
         <a 
             href="https://www.amazon.com/gp/product/B0G611PS2Y" 
             class="w-full inline-flex justify-center items-center py-3 px-6 rounded-lg text-white font-bold text-lg bg-accent hover:bg-red-700 transition duration-300 shadow-lg shadow-accent/50 animate-bounce"
-            onclick="return trackDownload('Download APK - Direto', this.href)"
-            download
+            onclick="return trackDownload('Download - Amazon Mobile', this.href)"
         >
-            ⬇️ Baixar Recibook (APK) Agora!
+            <i class="fab fa-amazon mr-2"></i> Baixar na Amazon Appstore
         </a>
     </div>
 
@@ -101,6 +102,7 @@
     <header class="bg-primary text-white py-10 shadow-xl">
         <div class="container mx-auto px-4 flex flex-col items-center text-center">
             <div class="flex items-center mb-4">
+                <!-- Se a imagem logo-recibook.jfif falhar, mostra um placeholder -->
                 <img src="logo-recibook.jfif" onerror="this.onerror=null;this.src='https://placehold.co/60x60/3498db/ffffff?text=RB';" alt="Logo Recibook" class="h-16 w-16 mr-4 rounded-full shadow-md">
                 <h1 class="text-4xl font-extrabold m-0">Recibook</h1>
             </div>
@@ -115,19 +117,18 @@
             <p class="text-xl max-w-2xl mx-auto mb-8">Com o Recibook você controla suas compras, gera recibos em PDF de forma profissional, tira foto do recibo para organização e calcula o troco automaticamente para mais agilidade.</p>
 
             <div class="flex flex-col md:flex-row justify-center gap-4">
-                <!-- CTA Principal (Visível em Desktop/Tablet) -->
+                <!-- CTA Principal (Desktop/Tablet) - AGORA APONTA PARA A AMAZON -->
                 <a 
-                    href="https://github.com/rafaeltaciel/recibook/releases/download/v1.0.0-beta/recibook-v1.0.0-beta.apk" 
+                    href="https://www.amazon.com/gp/product/B0G611PS2Y" 
                     class="hidden md:inline-flex items-center py-4 px-8 rounded-xl text-white font-extrabold text-xl bg-accent hover:bg-red-700 transition duration-300 shadow-xl shadow-accent/50 hover:scale-105"
-                    onclick="return trackDownload('Download APK - Direto', this.href)"
-                    download
+                    onclick="return trackDownload('Download - Amazon Desktop', this.href)"
                 >
-                    ⬇️ Download Direto (APK)
+                    <i class="fab fa-amazon mr-2"></i> Baixar na Amazon Appstore
                 </a>
 
-                <!-- CTA Secundário (Telegram) -->
+                <!-- CTA Secundário (Telegram) - Permanece, como alternativa -->
                 <a href="http://bit.ly/RecibookTelegram" class="inline-flex items-center justify-center py-4 px-8 rounded-xl text-white font-bold text-lg bg-primary hover:bg-blue-700 transition duration-300 shadow-xl shadow-primary/50 hover:scale-105">
-                    📱 Baixar pelo Telegram <i class="fab fa-telegram-plane ml-2"></i>
+                    <i class="fab fa-telegram-plane mr-2"></i> Baixar pelo Telegram
                 </a>
             </div>
         </section>
@@ -145,7 +146,7 @@
                 </div>
 
                 <p class="text-center mb-4">Você pode conferir a análise completa aqui:</p>
-                <a href="https://www.virustotal.com/gui/url/3564d09be26f4aa44cc5625ff5076825a3491bdda64cc5ac4a3ed6bf95de47ea?nocache=1" target="_blank" rel="noopener noreferrer" class="cta-button bg-accent hover:bg-red-700 mx-auto block w-fit p-3 shadow-md">
+                <a href="https://www.virustotal.com/gui/url/3564d0be26f4aa44cc5625ff5076825a3491bdda64cc5ac4a3ed6bf95de47ea?nocache=1" target="_blank" rel="noopener noreferrer" class="cta-button bg-accent hover:bg-red-700 mx-auto block w-fit p-3 rounded-xl text-white font-bold shadow-md transition duration-300 hover:scale-105">
                     👉 Ver Análise Completa no VirusTotal
                 </a>
                 <p class="text-center mt-6 text-sm text-gray-600">Fique tranquilo e use o Recibook para controlar seus gastos com total segurança!</p>
@@ -218,7 +219,7 @@
                     <a href="https://www.youtube.com/@RecibookOficial" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
                         <i class="fab fa-youtube mr-2"></i> YouTube
                     </a>
-                    <a href="https://t.me/recibook_testes" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
+                    <a href="http://bit.ly/RecibookTelegram" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
                         <i class="fab fa-telegram-plane mr-2"></i> Telegram
                     </a>
                     <a href="https://twitter.com/RecibookOficial" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
