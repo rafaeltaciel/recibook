@@ -1,0 +1,2 @@
+amazon.com, 2816, DIRECT
+google.com, pub-1672360722482726, DIRECT, f08c47fec0942fa0
