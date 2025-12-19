@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recibook – Controle de Gastos e Recibos</title>
-    
-    <!-- Carrega a biblioteca do Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carrega Font Awesome para ícones -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Configuração do Tailwind para fontes e cores -->
     <script>
         tailwind.config = {
             theme: {
@@ -28,106 +23,52 @@
             }
         }
     </script>
-    
-    <!-- INÍCIO DO RASTREAMENTO GA4 (G-96DZQYCZ7L) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-96DZQYCZ7L"></script>
     <meta name="google-site-verification" content="4zJ4K26bOdKIG2gdws74yUr7CCqoyfrxFWD3oUzF_AE" />
-    
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        
         gtag('js', new Date());
-        // Configuração do seu ID de Rastreamento
         gtag('config', 'G-96DZQYCZ7L');
-
-        // FUNÇÃO PARA RASTREAR O CLIQUE LIMPO NO GOOGLE ANALYTICS
         function trackDownload(actionName, downloadUrl) {
-            // Verifica se o gtag (GA) está pronto e o rastreamento foi carregado
             if (typeof gtag === 'function') {
-                // 1. Envia o evento de rastreamento para o Google Analytics
                 gtag('event', actionName, {
                     'event_category': 'Download',
                     'event_label': downloadUrl,
-                    'non_interaction': false // Marcado como false para contagem de evento de conversão
+                    'non_interaction': false
                 });
-                console.log(`Evento rastreado no GA: ${actionName}`);
-            } else {
-                console.error("Função gtag não está definida. O rastreamento pode estar inativo.");
             }
-            // Pequeno atraso para garantir que o evento seja enviado antes de navegar
-            setTimeout(() => {
-                    window.location.href = downloadUrl;
-            }, 100); 
-            // Retorna false para evitar que o link seja seguido imediatamente
+            setTimeout(() => { window.location.href = downloadUrl; }, 100);
             return false;
         }
     </script>
-    <!-- FIM DO RASTREAMENTO GA4 -->
-
-    <!-- Dados estruturados (Schema.org) para SEO -->
-    <script type="application/ld+json">{ 
-        "@context": "https://schema.org", 
-        "@type": "SoftwareApplication", 
-        "name": "Recibook", 
-        "operatingSystem": "Android", 
-        "applicationCategory": "FinanceApplication", 
-        "description": "Aplicativo gratuito para controlar gastos, gerar recibos em PDF e calcular troco.", 
-        "author": { 
-            "@type": "Person", 
-            "name": "Rafael Taciel" 
-        }, 
-        "offers": { 
-            "@type": "Offer", 
-            "price": "0", 
-            "priceCurrency": "BRL" 
-        }, 
-        "url": "https://rafaeltaciel.github.io/recibook/"
-    }</script>
 </head>
 <body class="font-sans text-secondary bg-white">
-    <!-- Botão de Download Flutuante (FIXO NO RODAPÉ EM TELAS PEQUENAS) -->
     <div class="fixed bottom-0 left-0 right-0 z-50 bg-white p-4 shadow-2xl md:hidden">
-        <!-- LINK AGORA APONTA PARA A AMAZON APPSTORE -->
-        <a 
-            href="https://www.amazon.com/gp/product/B0G611PS2Y" 
-            class="w-full inline-flex justify-center items-center py-3 px-6 rounded-lg text-white font-bold text-lg bg-accent hover:bg-red-700 transition duration-300 shadow-lg shadow-accent/50 animate-bounce"
-            onclick="return trackDownload('Download - Amazon Mobile', this.href)"
-        >
+        <a href="https://www.amazon.com/gp/product/B0G611PS2Y" class="w-full inline-flex justify-center items-center py-3 px-6 rounded-lg text-white font-bold text-lg bg-accent hover:bg-red-700 transition duration-300 shadow-lg animate-bounce" onclick="return trackDownload('Download - Amazon Mobile', this.href)">
             <i class="fab fa-amazon mr-2"></i> Baixar na Amazon Appstore
         </a>
     </div>
 
-    <!-- Cabeçalho Principal (Hero Section) -->
     <header class="bg-primary text-white py-10 shadow-xl">
         <div class="container mx-auto px-4 flex flex-col items-center text-center">
             <div class="flex items-center mb-4">
-                <!-- Se a imagem logo-recibook.jfif falhar, mostra um placeholder -->
                 <img src="logo-recibook.jfif" onerror="this.onerror=null;this.src='https://placehold.co/60x60/3498db/ffffff?text=RB';" alt="Logo Recibook" class="h-16 w-16 mr-4 rounded-full shadow-md">
                 <h1 class="text-4xl font-extrabold m-0">Recibook</h1>
             </div>
-            <p class="text-xl font-light opacity-90 m-0">Controle de Gastos e Recibos: Sua Solução Financeira Simples.</p>
+            <p class="text-xl font-light opacity-90 m-0">Sua Solução Financeira Simples.</p>
         </div>
     </header>
 
     <main class="container mx-auto px-4 pb-20 md:pb-10">
-        <!-- Seção de Apresentação e CTA -->
         <section id="apresentacao" class="py-10 text-center">
             <h2 class="text-3xl font-bold text-primary mb-4">A Solução Simples para Suas Finanças</h2>
-            <p class="text-xl max-w-2xl mx-auto mb-8">Com o Recibook você controla suas compras, gera recibos em PDF de forma profissional, tira foto do recibo para organização e calcula o troco automaticamente para mais agilidade.</p>
-
+            <p class="text-xl max-w-2xl mx-auto mb-8">Controle compras, gere PDFs profissionais e calcule o troco automaticamente.</p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
-                <!-- CTA Principal (Desktop/Tablet) - AGORA APONTA PARA A AMAZON -->
-                <a 
-                    href="https://www.amazon.com/gp/product/B0G611PS2Y" 
-                    class="hidden md:inline-flex items-center py-4 px-8 rounded-xl text-white font-extrabold text-xl bg-accent hover:bg-red-700 transition duration-300 shadow-xl shadow-accent/50 hover:scale-105"
-                    onclick="return trackDownload('Download - Amazon Desktop', this.href)"
-                >
+                <a href="https://www.amazon.com/gp/product/B0G611PS2Y" class="hidden md:inline-flex items-center py-4 px-8 rounded-xl text-white font-extrabold text-xl bg-accent hover:bg-red-700 transition duration-300 shadow-xl hover:scale-105" onclick="return trackDownload('Download - Amazon Desktop', this.href)">
                     <i class="fab fa-amazon mr-2"></i> Baixar na Amazon Appstore
                 </a>
-
-                <!-- CTA Secundário (Telegram) - Permanece, como alternativa -->
-                <a href="http://bit.ly/RecibookTelegram" class="inline-flex items-center justify-center py-4 px-8 rounded-xl text-white font-bold text-lg bg-primary hover:bg-blue-700 transition duration-300 shadow-xl shadow-primary/50 hover:scale-105">
+                <a href="http://bit.ly/RecibookTelegram" class="inline-flex items-center justify-center py-4 px-8 rounded-xl text-white font-bold text-lg bg-primary hover:bg-blue-700 transition duration-300 shadow-xl hover:scale-105">
                     <i class="fab fa-telegram-plane mr-2"></i> Baixar pelo Telegram
                 </a>
             </div>
@@ -135,110 +76,83 @@
 
         <hr class="border-0 h-px my-10 bg-gradient-to-r from-transparent via-primary/70 to-transparent">
 
-        <!-- Seção de Segurança (VirusTotal) -->
-        <section id="seguranca-virustotal" class="bg-light-bg py-10 rounded-xl border-t-4 border-primary shadow-inner">
-            <div class="virustotal-box max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg text-left">
-                <h3 class="text-2xl font-semibold text-secondary text-center mb-6"><i class="fas fa-shield-alt text-primary mr-2"></i> Sua Segurança é Nossa Prioridade</h3>
-                <p class="mb-4">O Recibook é um app seguro para você controlar seus gastos, gerar recibos e calcular troco. Para garantir isso, fizemos uma análise completa do link do nosso app no **VirusTotal**.</p>
-
-                <div class="resultado text-center text-xl font-extrabold text-primary p-4 my-6 border-2 border-primary rounded-lg bg-blue-50/50">
-                    <i class="fas fa-check-circle mr-2"></i> **Resultado da análise: 0/68 antivírus detectaram qualquer ameaça!**
+        <section id="blog-novidades" class="py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                <div class="bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-2xl font-bold text-primary mb-4 flex items-center">
+                        <i class="fab fa-youtube text-red-600 mr-2"></i> Recibook em Ação
+                    </h3>
+                    <div class="aspect-video rounded-xl overflow-hidden shadow-inner bg-black">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="mt-4 text-gray-600 italic text-sm">"Veja como organizar as compras de Natal em segundos!"</p>
                 </div>
 
-                <p class="text-center mb-4">Você pode conferir a análise completa aqui:</p>
-                <a href="https://www.virustotal.com/gui/url/3564d0be26f4aa44cc5625ff5076825a3491bdda64cc5ac4a3ed6bf95de47ea?nocache=1" target="_blank" rel="noopener noreferrer" class="cta-button bg-accent hover:bg-red-700 mx-auto block w-fit p-3 rounded-xl text-white font-bold shadow-md transition duration-300 hover:scale-105">
-                    👉 Ver Análise Completa no VirusTotal
-                </a>
-                <p class="text-center mt-6 text-sm text-gray-600">Fique tranquilo e use o Recibook para controlar seus gastos com total segurança!</p>
+                <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-primary">
+                    <span class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase">Novidade</span>
+                    <h3 class="text-2xl font-bold text-secondary mt-3 mb-4">Recibook 2026: Visual Aprovado!</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        O feedback no Kwai foi incrível! Nosso novo modelo com <b>Recibo em Card</b> e <b>Troco em Verde</b> está chegando para facilitar sua vida em 2026.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Visual mais limpo e profissional</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Foco total na economia e clareza</li>
+                    </ul>
+                    <a href="http://bit.ly/RecibookTelegram" class="text-primary font-bold hover:underline flex items-center">
+                        Acompanhe no Telegram <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
         <hr class="border-0 h-px my-10 bg-gradient-to-r from-transparent via-primary/70 to-transparent">
 
-        <!-- Seção de Funcionalidades -->
-        <section id="funcionalidades" class="py-10 text-center">
-            <h2 class="text-3xl font-bold text-primary mb-8">Funcionalidades Chave</h2>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-lg">
-                    <i class="fas fa-plus-circle text-primary text-4xl mb-3"></i>
-                    <span class="block font-semibold mt-2">Adicionar produtos e valores</span>
-                </li>
-                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-lg">
-                    <i class="fas fa-file-pdf text-primary text-4xl mb-3"></i>
-                    <span class="block font-semibold mt-2">Gerar PDF de recibo Profissional</span>
-                </li>
-                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-lg">
-                    <i class="fas fa-camera text-primary text-4xl mb-3"></i>
-                    <span class="block font-semibold mt-2">Digitalizar e Salvar Foto do Recibo</span>
-                </li>
-                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-[1.02] hover:shadow-lg">
-                    <i class="fas fa-calculator text-primary text-4xl mb-3"></i>
-                    <span class="block font-semibold mt-2">Calcular troco Rápido</span>
-                </li>
-            </ul>
+        <section id="seguranca-virustotal" class="bg-light-bg py-10 rounded-xl border-t-4 border-primary shadow-inner">
+            <div class="virustotal-box max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-semibold text-secondary text-center mb-6"><i class="fas fa-shield-alt text-primary mr-2"></i> Sua Segurança é Nossa Prioridade</h3>
+                <div class="resultado text-center text-xl font-extrabold text-primary p-4 mb-6 border-2 border-primary rounded-lg bg-blue-50/50">
+                    <i class="fas fa-check-circle mr-2"></i> Resultado: 0/68 vírus detectados!
+                </div>
+                <a href="https://www.virustotal.com/gui/url/3564d0be26f4aa44cc5625ff5076825a3491bdda64cc5ac4a3ed6bf95de47ea?nocache=1" target="_blank" class="bg-accent hover:bg-red-700 mx-auto block w-fit p-3 rounded-xl text-white font-bold shadow-md transition duration-300 hover:scale-105">
+                    👉 Ver Análise no VirusTotal
+                </a>
+            </div>
         </section>
 
         <hr class="border-0 h-px my-10 bg-gradient-to-r from-transparent via-primary/70 to-transparent">
 
-        <!-- Seção de Depoimentos e Screenshots -->
+        <section id="funcionalidades" class="py-10 text-center">
+            <h2 class="text-3xl font-bold text-primary mb-8">Funcionalidades Chave</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-105"><i class="fas fa-plus-circle text-primary text-4xl"></i><span class="block font-semibold mt-2">Adicionar produtos</span></li>
+                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-105"><i class="fas fa-file-pdf text-primary text-4xl"></i><span class="block font-semibold mt-2">Gerar PDF Profissional</span></li>
+                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-105"><i class="fas fa-camera text-primary text-4xl"></i><span class="block font-semibold mt-2">Digitalizar Recibos</span></li>
+                <li class="bg-light-bg rounded-xl p-6 shadow-md transition duration-300 hover:scale-105"><i class="fas fa-calculator text-primary text-4xl"></i><span class="block font-semibold mt-2">Calcular troco Rápido</span></li>
+            </ul>
+        </section>
+
         <section id="depoimentos" class="py-10 text-center">
             <h2 class="text-3xl font-bold text-primary mb-8">O que Dizem Nossos Usuários</h2>
             <div class="flex flex-col md:flex-row justify-center items-center gap-8 max-w-4xl mx-auto">
-                <div class="depoimento-texto">
-                    <p class="italic bg-light-bg p-6 rounded-xl border-l-4 border-primary shadow-sm text-lg max-w-md m-0">
-                        "Ótimo para controlar os gastos da família, super recomendo!" 
-                        <span class="block text-sm font-semibold mt-2 text-gray-700">- Maria, usuária</span>
-                    </p>
-                </div>
-                <!-- Imagem do Aplicativo (Placeholder robusto) -->
-                <img 
-                    src="print-do-app.jpg" 
-                    onerror="this.onerror=null;this.src='https://placehold.co/400x300/3498db/ffffff?text=CAPTURA+DE+TELA+DO+APP';" 
-                    alt="Print da tela do aplicativo Recibook" 
-                    class="max-w-full h-auto rounded-xl shadow-2xl object-contain max-h-96"
-                >
+                <p class="italic bg-light-bg p-6 rounded-xl border-l-4 border-primary shadow-sm text-lg">"Ótimo para controlar os gastos da família, super recomendo!"<span class="block text-sm font-semibold mt-2 text-gray-700">- Maria, usuária</span></p>
+                <img src="print-do-app.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/3498db/ffffff?text=CAPTURA+DE+TELA+DO+APP';" class="max-w-full h-auto rounded-xl shadow-2xl max-h-96">
             </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
     <footer class="bg-secondary text-white py-10">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between gap-8 border-b border-white/10 pb-6 mb-6">
-                <!-- Contato -->
-                <div class="w-full md:w-1/3">
-                    <h3 class="text-xl font-semibold mb-4 border-b-2 border-primary pb-1">Contato</h3>
-                    <a href="mailto:rafaelprogramdor@gmail.com" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
-                        <i class="fas fa-envelope mr-2"></i> Envie um e-mail
-                    </a>
-                </div>
-                
-                <!-- Redes Sociais -->
-                <div class="w-full md:w-1/3">
-                    <h3 class="text-xl font-semibold mb-4 border-b-2 border-primary pb-1">Redes Sociais</h3>
-                    <a href="https://www.youtube.com/@RecibookOficial" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
-                        <i class="fab fa-youtube mr-2"></i> YouTube
-                    </a>
-                    <a href="http://bit.ly/RecibookTelegram" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
-                        <i class="fab fa-telegram-plane mr-2"></i> Telegram
-                    </a>
-                    <a href="https://twitter.com/RecibookOficial" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
-                        <i class="fab fa-twitter mr-2"></i> Twitter/X
-                    </a>
-                </div>
-
-                <!-- Desenvolvedor -->
-                <div class="w-full md:w-1/3">
-                    <h3 class="text-xl font-semibold mb-4 border-b-2 border-primary pb-1">Desenvolvedor</h3>
-                    <a href="https://github.com/rafaeltaciel/recibook" target="_blank" rel="noopener noreferrer" class="text-light-bg hover:text-primary transition duration-300 block mb-2">
-                        <i class="fab fa-github mr-2"></i> Código no GitHub
-                    </a>
+            <div class="flex flex-col md:flex-row justify-between gap-8 border-b border-white/10 pb-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 border-b-2 border-primary pb-1 w-fit">Redes Sociais</h3>
+                    <div class="space-y-2">
+                        <a href="https://www.youtube.com/@RecibookOficial" class="block hover:text-primary"><i class="fab fa-youtube mr-2"></i> YouTube</a>
+                        <a href="http://bit.ly/RecibookTelegram" class="block hover:text-primary"><i class="fab fa-telegram-plane mr-2"></i> Telegram</a>
+                        <a href="https://twitter.com/RecibookOficial" class="block hover:text-primary"><i class="fab fa-twitter mr-2"></i> Twitter/X</a>
+                    </div>
                 </div>
             </div>
-            
-            <p class="text-center text-sm pt-4">
-                <i class="fas fa-shield-alt text-primary mr-1"></i> App testado e seguro • Recibook © 2024
-            </p>
+            <p class="text-center text-sm pt-4">Recibook © 2025 • App Seguro</p>
         </div>
     </footer>
 </body>
